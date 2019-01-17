@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0AADF6E21E608E500F53638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF6D21E608E500F53638 /* AppDelegate.swift */; };
+		D0AADF7021E608E500F53638 /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF6F21E608E500F53638 /* ClockViewController.swift */; };
+		D0AADF7221E608E500F53638 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF7121E608E500F53638 /* StopWatchViewController.swift */; };
+		D0AADF7521E608E500F53638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AADF7321E608E500F53638 /* Main.storyboard */; };
+		D0AADF7721E608E800F53638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0AADF7621E608E800F53638 /* Assets.xcassets */; };
+		D0AADF7A21E608E800F53638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AADF7821E608E800F53638 /* LaunchScreen.storyboard */; };
+		D0AADF8521E608E800F53638 /* DonutClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF8421E608E800F53638 /* DonutClockTests.swift */; };
+		D0AADF9021E608E800F53638 /* DonutClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF8F21E608E800F53638 /* DonutClockUITests.swift */; };
+		D0AADF9E21E6126E00F53638 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF9D21E6126E00F53638 /* UIColor.swift */; };
+		D0AADFA121E748C900F53638 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADFA021E748C900F53638 /* DonutView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0AADF8121E608E800F53638 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0AADF6221E608E500F53638 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0AADF6921E608E500F53638;
+			remoteInfo = DonutClock;
+		};
+		D0AADF8C21E608E800F53638 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0AADF6221E608E500F53638 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0AADF6921E608E500F53638;
+			remoteInfo = DonutClock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0AADF6A21E608E500F53638 /* DonutClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonutClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0AADF6D21E608E500F53638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D0AADF6F21E608E500F53638 /* ClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewController.swift; sourceTree = "<group>"; };
+		D0AADF7121E608E500F53638 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		D0AADF7421E608E500F53638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0AADF7621E608E800F53638 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0AADF7921E608E800F53638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0AADF7B21E608E800F53638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0AADF8021E608E800F53638 /* DonutClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonutClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0AADF8421E608E800F53638 /* DonutClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutClockTests.swift; sourceTree = "<group>"; };
+		D0AADF8621E608E800F53638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0AADF8B21E608E800F53638 /* DonutClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonutClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0AADF8F21E608E800F53638 /* DonutClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutClockUITests.swift; sourceTree = "<group>"; };
+		D0AADF9121E608E800F53638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0AADF9D21E6126E00F53638 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D0AADFA021E748C900F53638 /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0AADF6721E608E500F53638 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0AADF7D21E608E800F53638 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0AADF8821E608E800F53638 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0AADF6121E608E500F53638 = {
+			isa = PBXGroup;
+			children = (
+				D0AADF6C21E608E500F53638 /* DonutClock */,
+				D0AADF8321E608E800F53638 /* DonutClockTests */,
+				D0AADF8E21E608E800F53638 /* DonutClockUITests */,
+				D0AADF6B21E608E500F53638 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0AADF6B21E608E500F53638 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0AADF6A21E608E500F53638 /* DonutClock.app */,
+				D0AADF8021E608E800F53638 /* DonutClockTests.xctest */,
+				D0AADF8B21E608E800F53638 /* DonutClockUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0AADF6C21E608E500F53638 /* DonutClock */ = {
+			isa = PBXGroup;
+			children = (
+				D0AADF6D21E608E500F53638 /* AppDelegate.swift */,
+				D0AADF6F21E608E500F53638 /* ClockViewController.swift */,
+				D0AADFA221E748D600F53638 /* Views */,
+				D0AADF9F21E6132B00F53638 /* Extensions */,
+				D0AADF7121E608E500F53638 /* StopWatchViewController.swift */,
+				D0AADF7321E608E500F53638 /* Main.storyboard */,
+				D0AADF7621E608E800F53638 /* Assets.xcassets */,
+				D0AADF7821E608E800F53638 /* LaunchScreen.storyboard */,
+				D0AADF7B21E608E800F53638 /* Info.plist */,
+			);
+			path = DonutClock;
+			sourceTree = "<group>";
+		};
+		D0AADF8321E608E800F53638 /* DonutClockTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0AADF8421E608E800F53638 /* DonutClockTests.swift */,
+				D0AADF8621E608E800F53638 /* Info.plist */,
+			);
+			path = DonutClockTests;
+			sourceTree = "<group>";
+		};
+		D0AADF8E21E608E800F53638 /* DonutClockUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0AADF8F21E608E800F53638 /* DonutClockUITests.swift */,
+				D0AADF9121E608E800F53638 /* Info.plist */,
+			);
+			path = DonutClockUITests;
+			sourceTree = "<group>";
+		};
+		D0AADF9F21E6132B00F53638 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0AADF9D21E6126E00F53638 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D0AADFA221E748D600F53638 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0AADFA021E748C900F53638 /* DonutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0AADF6921E608E500F53638 /* DonutClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0AADF9421E608E800F53638 /* Build configuration list for PBXNativeTarget "DonutClock" */;
+			buildPhases = (
+				D0AADF6621E608E500F53638 /* Sources */,
+				D0AADF6721E608E500F53638 /* Frameworks */,
+				D0AADF6821E608E500F53638 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DonutClock;
+			productName = DonutClock;
+			productReference = D0AADF6A21E608E500F53638 /* DonutClock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0AADF7F21E608E800F53638 /* DonutClockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0AADF9721E608E800F53638 /* Build configuration list for PBXNativeTarget "DonutClockTests" */;
+			buildPhases = (
+				D0AADF7C21E608E800F53638 /* Sources */,
+				D0AADF7D21E608E800F53638 /* Frameworks */,
+				D0AADF7E21E608E800F53638 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0AADF8221E608E800F53638 /* PBXTargetDependency */,
+			);
+			name = DonutClockTests;
+			productName = DonutClockTests;
+			productReference = D0AADF8021E608E800F53638 /* DonutClockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D0AADF8A21E608E800F53638 /* DonutClockUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0AADF9A21E608E800F53638 /* Build configuration list for PBXNativeTarget "DonutClockUITests" */;
+			buildPhases = (
+				D0AADF8721E608E800F53638 /* Sources */,
+				D0AADF8821E608E800F53638 /* Frameworks */,
+				D0AADF8921E608E800F53638 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0AADF8D21E608E800F53638 /* PBXTargetDependency */,
+			);
+			name = DonutClockUITests;
+			productName = DonutClockUITests;
+			productReference = D0AADF8B21E608E800F53638 /* DonutClockUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0AADF6221E608E500F53638 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "motoki-shun";
+				TargetAttributes = {
+					D0AADF6921E608E500F53638 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D0AADF7F21E608E800F53638 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = D0AADF6921E608E500F53638;
+					};
+					D0AADF8A21E608E800F53638 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = D0AADF6921E608E500F53638;
+					};
+				};
+			};
+			buildConfigurationList = D0AADF6521E608E500F53638 /* Build configuration list for PBXProject "DonutClock" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0AADF6121E608E500F53638;
+			productRefGroup = D0AADF6B21E608E500F53638 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0AADF6921E608E500F53638 /* DonutClock */,
+				D0AADF7F21E608E800F53638 /* DonutClockTests */,
+				D0AADF8A21E608E800F53638 /* DonutClockUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0AADF6821E608E500F53638 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AADF7A21E608E800F53638 /* LaunchScreen.storyboard in Resources */,
+				D0AADF7721E608E800F53638 /* Assets.xcassets in Resources */,
+				D0AADF7521E608E500F53638 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0AADF7E21E608E800F53638 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0AADF8921E608E800F53638 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0AADF6621E608E500F53638 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AADF7221E608E500F53638 /* StopWatchViewController.swift in Sources */,
+				D0AADF9E21E6126E00F53638 /* UIColor.swift in Sources */,
+				D0AADF6E21E608E500F53638 /* AppDelegate.swift in Sources */,
+				D0AADFA121E748C900F53638 /* DonutView.swift in Sources */,
+				D0AADF7021E608E500F53638 /* ClockViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0AADF7C21E608E800F53638 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AADF8521E608E800F53638 /* DonutClockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0AADF8721E608E800F53638 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AADF9021E608E800F53638 /* DonutClockUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0AADF8221E608E800F53638 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0AADF6921E608E500F53638 /* DonutClock */;
+			targetProxy = D0AADF8121E608E800F53638 /* PBXContainerItemProxy */;
+		};
+		D0AADF8D21E608E800F53638 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0AADF6921E608E500F53638 /* DonutClock */;
+			targetProxy = D0AADF8C21E608E800F53638 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0AADF7321E608E500F53638 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0AADF7421E608E500F53638 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D0AADF7821E608E800F53638 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0AADF7921E608E800F53638 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0AADF9221E608E800F53638 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0AADF9321E608E800F53638 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0AADF9521E608E800F53638 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AH597F32W5;
+				INFOPLIST_FILE = DonutClock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mtkshn.DonutClock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0AADF9621E608E800F53638 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AH597F32W5;
+				INFOPLIST_FILE = DonutClock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mtkshn.DonutClock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D0AADF9821E608E800F53638 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AH597F32W5;
+				INFOPLIST_FILE = DonutClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mtkshn.DonutClockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DonutClock.app/DonutClock";
+			};
+			name = Debug;
+		};
+		D0AADF9921E608E800F53638 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AH597F32W5;
+				INFOPLIST_FILE = DonutClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mtkshn.DonutClockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DonutClock.app/DonutClock";
+			};
+			name = Release;
+		};
+		D0AADF9B21E608E800F53638 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AH597F32W5;
+				INFOPLIST_FILE = DonutClockUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mtkshn.DonutClockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DonutClock;
+			};
+			name = Debug;
+		};
+		D0AADF9C21E608E800F53638 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AH597F32W5;
+				INFOPLIST_FILE = DonutClockUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mtkshn.DonutClockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DonutClock;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0AADF6521E608E500F53638 /* Build configuration list for PBXProject "DonutClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0AADF9221E608E800F53638 /* Debug */,
+				D0AADF9321E608E800F53638 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0AADF9421E608E800F53638 /* Build configuration list for PBXNativeTarget "DonutClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0AADF9521E608E800F53638 /* Debug */,
+				D0AADF9621E608E800F53638 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0AADF9721E608E800F53638 /* Build configuration list for PBXNativeTarget "DonutClockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0AADF9821E608E800F53638 /* Debug */,
+				D0AADF9921E608E800F53638 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0AADF9A21E608E800F53638 /* Build configuration list for PBXNativeTarget "DonutClockUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0AADF9B21E608E800F53638 /* Debug */,
+				D0AADF9C21E608E800F53638 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0AADF6221E608E500F53638 /* Project object */;
+}
