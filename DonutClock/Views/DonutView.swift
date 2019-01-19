@@ -118,37 +118,20 @@ class DonutView: UIView {
     }
 
     func animateCircle(duration: TimeInterval, redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 1) {
-        var animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = duration
-        animation.fromValue = 0
-        animation.toValue = redRatio
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        redLayer.strokeEnd = redRatio
-        redLayer.add(animation, forKey: "animateCircle")
+        setupAnimatioin(layer: redLayer, duration: duration, ratio: redRatio)
+        setupAnimatioin(layer: greenLayer, duration: duration, ratio: greenRatio)
+        setupAnimatioin(layer: blueLayer, duration: duration, ratio: blueRatio)
+        setupAnimatioin(layer: yellowLayer, duration: duration, ratio: yellowRatio)
+    }
 
-        animation = CABasicAnimation(keyPath: "strokeEnd")
+    private func setupAnimatioin(layer: CAShapeLayer, duration: TimeInterval, ratio: CGFloat = 1) {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
-        animation.toValue = greenRatio
+        animation.toValue = ratio
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        greenLayer.strokeEnd = greenRatio
-        greenLayer.add(animation, forKey: "animateCircle")
-
-        animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = duration
-        animation.fromValue = 0
-        animation.toValue = blueRatio
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        blueLayer.strokeEnd = blueRatio
-        blueLayer.add(animation, forKey: "animateCircle")
-
-        animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = duration
-        animation.fromValue = 0
-        animation.toValue = yellowRatio
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        yellowLayer.strokeEnd = yellowRatio
-        yellowLayer.add(animation, forKey: "animateCircle")
+        layer.strokeEnd = ratio
+        layer.add(animation, forKey: "animateCircle")
     }
 
     func drawDonut(redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 0) {

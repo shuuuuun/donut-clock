@@ -82,7 +82,7 @@ class ClockViewController: UIViewController {
         let minute = CGFloat(calendar.component(.minute, from: now))
         let second = CGFloat(calendar.component(.second, from: now))
         let nanosecond = CGFloat(calendar.component(.nanosecond, from: now))
-        print(hour, minute, second, nanosecond)
+//        print(hour, minute, second, nanosecond)
         return (hour, minute, second + nanosecond / 1000 / 1000 / 1000)
     }
 }

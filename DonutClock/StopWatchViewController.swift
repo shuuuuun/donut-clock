@@ -77,7 +77,7 @@ class StopWatchViewController: UIViewController {
         let minute = CGFloat(floor(elapsedTime / 60)) - hour * 60
         let second = CGFloat(elapsedTime) - hour * 60 - minute * 60
         let millisecond = CGFloat(elapsedTime - floor(elapsedTime))
-        print(elapsedTime, hour, minute, second, millisecond)
+//        print(elapsedTime, hour, minute, second, millisecond)
         donutView.drawDonut(redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60, yellowRatio: millisecond)
         digitalClock.text = String(format: "%02d", Int(hour)) + ":" + String(format: "%02d", Int(minute)) + ":" + String(format: "%02d", Int(second))
     }
