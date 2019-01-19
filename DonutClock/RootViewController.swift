@@ -17,6 +17,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         super.viewDidLoad()
 
         let storyboard: UIStoryboard = self.storyboard!
+        let pageControlFrame = CGRect(x: 0, y: self.view.frame.height - 70, width: self.view.frame.width, height: 50)
 
         let clockViewController = storyboard.instantiateViewController(withIdentifier: "ClockViewController") as! ClockViewController
         let stopwatchViewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewController") as! StopWatchViewController
@@ -27,50 +28,37 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource, UIPa
             viewController.view.tag = index
         }
 
-        //PageViewControllerの生成
         pageViewController = UIPageViewController(transitionStyle: UIPageViewController.TransitionStyle.scroll,
                                                   navigationOrientation: UIPageViewController.NavigationOrientation.horizontal,
                                                   options: nil)
-        //DelegateとDataSouceの設定
         pageViewController.dataSource = self
         pageViewController.delegate = self
-
-        //はじめに生成するページを設定
         pageViewController.setViewControllers([viewControllersArray.first!], direction: .forward, animated: true, completion: nil)
         pageViewController.view.frame = self.view.frame
         self.view.addSubview(pageViewController.view!)
 
-        //PageControlの生成
-        pageControl = UIPageControl(frame: CGRect(x:0, y:self.view.frame.height - 100, width:self.view.frame.width, height:50))
-
-        // PageControlするページ数を設定する.
+        pageControl = UIPageControl(frame: pageControlFrame)
         pageControl.numberOfPages = viewControllersArray.count
-
-        // 現在ページを設定する.
         pageControl.currentPage = 0
         pageControl.isUserInteractionEnabled = false
         self.view.addSubview(pageControl)
     }
 
-    //DataSourceのメソッド
-    //指定されたViewControllerの前にViewControllerを返す
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         var index = viewController.view.tag
         pageControl.currentPage = index
-        if index == viewControllersArray.count - 1{
+        if index == viewControllersArray.count - 1 {
             return nil
         }
         index = index + 1
         return viewControllersArray[index]
     }
 
-    //DataSourceのメソッド
-    //指定されたViewControllerの前にViewControllerを返す
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = viewController.view.tag
         pageControl.currentPage = index
         index = index - 1
-        if index < 0{
+        if index < 0 {
             return nil
         }
         return viewControllersArray[index]
