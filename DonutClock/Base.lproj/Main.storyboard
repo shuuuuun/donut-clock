@@ -80,14 +80,6 @@
             </objects>
             <point key="canvasLocation" x="1334" y="-322"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="EEx-yc-CkI">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NQQ-ql-bOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="wEE-KE-t0U" customClass="PageViewController" customModule="DonutClock" customModuleProvider="target" sceneMemberID="viewController"/>
-            </objects>
-            <point key="canvasLocation" x="-44" y="-321"/>
-        </scene>
         <!--Root View Controller-->
         <scene sceneID="g5w-HL-FgV">
             <objects>
@@ -101,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOV-th-38V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706" y="-322"/>
+            <point key="canvasLocation" x="-41" y="-322"/>
         </scene>
     </scenes>
     <resources>
