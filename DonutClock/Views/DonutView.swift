@@ -193,31 +193,4 @@ class DonutView: UIView {
 //        capPath.apply(CGAffineTransform(rotationAngle: -2 * pi * blueRatio)) // reset angle
 //        capPath.apply(transformCenter)
     }
-
-    override func draw(_ rect: CGRect) {
-        //        drawStrokeCircle(rect: CGRect(x: 50, y: 50, width: 100, height: 100))
-//        drawStrokeCircle(rect: rect)
-    }
-
-    private func drawStrokeCircle(rect: CGRect) {
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return
-        }
-        let startAngle = -pi / 2
-        context.setLineWidth(lineWidth)
-        let center = CGPoint(x: rect.origin.x + rect.size.width/2, y: rect.origin.y + rect.size.height/2)
-        //        print(rect.origin, rect.size, center)
-
-        context.setStrokeColor(redColor.cgColor)
-        context.addArc(center: center, radius: maxRadius - lineWidth*0, startAngle: startAngle, endAngle: pi, clockwise: false)
-        context.strokePath()
-
-        context.setStrokeColor(greenColor.cgColor)
-        context.addArc(center: center, radius: maxRadius - lineWidth*1, startAngle: startAngle, endAngle: pi, clockwise: false)
-        context.strokePath()
-
-        context.setStrokeColor(blueColor.cgColor)
-        context.addArc(center: center, radius: maxRadius - lineWidth*2, startAngle: startAngle, endAngle: pi, clockwise: false)
-        context.strokePath()
-    }
 }
