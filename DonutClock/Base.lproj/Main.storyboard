@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAk-Ha-MZP">
-                                <rect key="frame" x="0.0" y="96" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="fxx-TO-iyh"/>
                                 </constraints>
@@ -27,8 +27,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvK-Zm-jwv">
-                                <rect key="frame" x="0.0" y="50" width="375" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6un-wR-Xk0">
+                                <rect key="frame" x="0.0" y="626" width="375" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -37,11 +37,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MAk-Ha-MZP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="FI2-es-yaS"/>
-                            <constraint firstItem="XvK-Zm-jwv" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="mx3-Ed-mwT"/>
+                            <constraint firstItem="MAk-Ha-MZP" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="60" id="JcQ-FH-p7u"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="6un-wR-Xk0" secondAttribute="trailing" id="OH7-g5-6H8"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="6un-wR-Xk0" secondAttribute="bottom" constant="15" id="fZa-VB-g5s"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="MAk-Ha-MZP" secondAttribute="trailing" id="p7R-u0-NTg"/>
-                            <constraint firstItem="MAk-Ha-MZP" firstAttribute="top" secondItem="XvK-Zm-jwv" secondAttribute="bottom" constant="20" id="qbv-CW-2GT"/>
-                            <constraint firstItem="XvK-Zm-jwv" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="ydS-eC-zaD"/>
-                            <constraint firstItem="XvK-Zm-jwv" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="zkw-bi-JXN"/>
+                            <constraint firstItem="6un-wR-Xk0" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="yZU-a8-pQs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bB-Dy-BQU">
-                                <rect key="frame" x="0.0" y="96" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="mWW-5M-2yA"/>
                                 </constraints>
@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StopWatch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVZ-Ab-49u">
-                                <rect key="frame" x="0.0" y="50" width="375" height="26"/>
+                                <rect key="frame" x="0.0" y="626" width="375" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -80,12 +80,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5bB-Dy-BQU" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="60" id="4Nj-EZ-s9l"/>
                             <constraint firstItem="UVZ-Ab-49u" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="CKK-ur-SDx"/>
-                            <constraint firstItem="UVZ-Ab-49u" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="30" id="QGb-0U-hhx"/>
                             <constraint firstAttribute="trailing" secondItem="5bB-Dy-BQU" secondAttribute="trailing" id="SAI-gc-vKS"/>
                             <constraint firstItem="5bB-Dy-BQU" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="gbr-dO-wO1"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="UVZ-Ab-49u" secondAttribute="trailing" id="rHz-et-26p"/>
-                            <constraint firstItem="5bB-Dy-BQU" firstAttribute="top" secondItem="UVZ-Ab-49u" secondAttribute="bottom" constant="20" id="rWv-s2-sOk"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="UVZ-Ab-49u" secondAttribute="bottom" constant="15" id="ynH-1l-NdN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>

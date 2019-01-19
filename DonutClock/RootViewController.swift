@@ -17,7 +17,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         super.viewDidLoad()
 
         let storyboard: UIStoryboard = self.storyboard!
-        let pageControlFrame = CGRect(x: 0, y: self.view.frame.height - 70, width: self.view.frame.width, height: 50)
+        let pageControlFrame = CGRect(x: 0, y: self.view.frame.height - 85, width: self.view.frame.width, height: 50)
 
         let clockViewController = storyboard.instantiateViewController(withIdentifier: "ClockViewController") as! ClockViewController
         let stopwatchViewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewController") as! StopWatchViewController
