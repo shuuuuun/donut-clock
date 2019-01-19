@@ -69,6 +69,7 @@ class ClockViewController: UIViewController {
         let df = DateFormatter()
         df.dateStyle = .none
         df.timeStyle = .medium
+        df.dateFormat = "HH:mm:ss"
         let str = df.string(from: now)
 //        print(str)
         digitalClock.text = str
