@@ -10,8 +10,8 @@ import UIKit
 
 class DonutView: UIView {
 
-    let lineMargin: CGFloat = 1
-    let lineWidth: CGFloat = 30.0
+    let lineMargin: CGFloat = 2
+    let lineWidth: CGFloat = 30
     let maxRadius: CGFloat = 120
     let adjustY: CGFloat = 30
     let fontSize: CGFloat = 20
@@ -20,10 +20,12 @@ class DonutView: UIView {
     let redColor = UIColor.init(hex: "f31e58")
     let greenColor = UIColor.init(hex: "99f700")
     let blueColor = UIColor.init(hex: "00dad8")
+    let yellowColor = UIColor.init(hex: "f8c437")
 
     var redLayer = CAShapeLayer()
     var greenLayer = CAShapeLayer()
     var blueLayer = CAShapeLayer()
+    var yellowLayer = CAShapeLayer()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,15 +33,20 @@ class DonutView: UIView {
 
         let center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0 + adjustY)
         initDonutLayer(sublayer: redLayer, color: redColor, center: center, radius: maxRadius - lineWidth*0 - lineMargin*0, label: "H")
-        initDonutLayer(sublayer: greenLayer, color: greenColor, center: center, radius: maxRadius - lineWidth*1 - lineMargin*2, label: "M")
-        initDonutLayer(sublayer: blueLayer, color: blueColor, center: center, radius: maxRadius - lineWidth*2 - lineMargin*4, label: "S")
+        initDonutLayer(sublayer: greenLayer, color: greenColor, center: center, radius: maxRadius - lineWidth*1 - lineMargin*1, label: "M")
+        initDonutLayer(sublayer: blueLayer, color: blueColor, center: center, radius: maxRadius - lineWidth*2 - lineMargin*2, label: "S")
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func initDonutLayer(sublayer: CAShapeLayer, color: UIColor, center: CGPoint, radius: CGFloat, label: String = "") {
+    func showMilliSecond() {
+        let center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0 + adjustY)
+        initDonutLayer(sublayer: yellowLayer, color: yellowColor, center: center, radius: maxRadius - lineWidth*3 - lineMargin*3 + lineWidth/4, label: "MS", sizeRatio: 0.5)
+    }
+
+    private func initDonutLayer(sublayer: CAShapeLayer, color: UIColor, center: CGPoint, radius: CGFloat, label: String = "", sizeRatio: CGFloat = 1) {
         let startAngle = -pi / 2
         let endAngle = 2 * pi * 3/4
 
@@ -49,7 +56,7 @@ class DonutView: UIView {
         bgLayer.path = bgPath.cgPath
         bgLayer.fillColor = UIColor.clear.cgColor
         bgLayer.strokeColor = color.cgColor
-        bgLayer.lineWidth = lineWidth
+        bgLayer.lineWidth = lineWidth * sizeRatio
         bgLayer.strokeEnd = 1.0
         bgLayer.opacity = 0.2
         sublayer.addSublayer(bgLayer)
@@ -59,7 +66,7 @@ class DonutView: UIView {
         sublayer.path = circlePath.cgPath
         sublayer.fillColor = UIColor.clear.cgColor
         sublayer.strokeColor = color.cgColor
-        sublayer.lineWidth = lineWidth
+        sublayer.lineWidth = lineWidth * sizeRatio
         sublayer.strokeEnd = 0.0
 //        sublayer.shadowColor = UIColor.black.cgColor
 //        sublayer.shadowRadius = 8.0
@@ -79,11 +86,11 @@ class DonutView: UIView {
 //        layer.addSublayer(gradLayer)
 
         let textLayer = CATextLayer()
-        textLayer.frame = CGRect(x: center.x - lineWidth/2, y: center.y - radius - lineWidth/2 + 3, width: lineWidth, height: lineWidth)
+        textLayer.frame = CGRect(x: center.x - lineWidth/2, y: center.y - radius - lineWidth/2*sizeRatio + 3*sizeRatio, width: lineWidth, height: lineWidth)
         textLayer.string = label
         textLayer.foregroundColor = UIColor.black.cgColor
         textLayer.font = "Futura-Medium" as CFString
-        textLayer.fontSize = fontSize
+        textLayer.fontSize = fontSize * sizeRatio
         textLayer.alignmentMode = CATextLayerAlignmentMode.center
 //        textLayer.backgroundColor = UIColor.white.cgColor
         textLayer.contentsScale = UIScreen.main.scale // for retina
@@ -110,7 +117,7 @@ class DonutView: UIView {
 //        sublayer.addSublayer(capLayer)
     }
 
-    func animateCircle(duration: TimeInterval, redRatio: CGFloat = 1.0, greenRatio: CGFloat = 1.0, blueRatio: CGFloat = 1.0) {
+    func animateCircle(duration: TimeInterval, redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 1) {
         var animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
@@ -134,12 +141,21 @@ class DonutView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         blueLayer.strokeEnd = blueRatio
         blueLayer.add(animation, forKey: "animateCircle")
+
+        animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = duration
+        animation.fromValue = 0
+        animation.toValue = yellowRatio
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        yellowLayer.strokeEnd = yellowRatio
+        yellowLayer.add(animation, forKey: "animateCircle")
     }
 
-    func drawDonut(redRatio: CGFloat = 1.0, greenRatio: CGFloat = 1.0, blueRatio: CGFloat = 1.0) {
+    func drawDonut(redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 0) {
         redLayer.strokeEnd = redRatio
         greenLayer.strokeEnd = greenRatio
         blueLayer.strokeEnd = blueRatio
+        yellowLayer.strokeEnd = yellowRatio
 //        print(layer.sublayers)
 //        print(redLayer.sublayers)
 //        for(layer in redLayer.sublayers) if([layer.name isEqualToString:@"A"])return;
