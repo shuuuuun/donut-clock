@@ -24,8 +24,8 @@ class StopWatchViewController: UIViewController {
         donutView.showMilliSecond()
         view.addSubview(donutView)
 
-        let animationDuration = 1.0
-        donutView.animateCircle(duration: animationDuration, redRatio: 1, greenRatio: 1, blueRatio: 1, yellowRatio: 1)
+//        let animationDuration = 1.0
+//        donutView.animateCircle(duration: animationDuration, redRatio: 1, greenRatio: 1, blueRatio: 1, yellowRatio: 1)
 
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapSingle(sender:)))
         singleTap.numberOfTapsRequired = 1
@@ -48,7 +48,12 @@ class StopWatchViewController: UIViewController {
     }
 
     @objc private func tapSingle(sender: UITapGestureRecognizer) {
+//        donutView.drawDonut(redRatio: 0.5, greenRatio: 0.5, blueRatio: 0.5, yellowRatio: 0.5)
+//        donutView.drawDonut(redRatio: 0.95, greenRatio: 0.95, blueRatio: 0.95, yellowRatio: 0.95)
+//        donutView.animateDonut()
+//        return
         if clockTimer == nil {
+//            donutView.animateDonut()
             start()
         }
         else {
@@ -59,7 +64,7 @@ class StopWatchViewController: UIViewController {
     private func start() {
         print("start")
         startDateTime = Date()
-        clockTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
+        clockTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
     }
 
     private func stop() {

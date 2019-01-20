@@ -23,8 +23,9 @@ class ClockViewController: UIViewController {
         view.addSubview(donutView)
 
         let animationDuration = 1.0
-        let (hour, minute, second) = getTimeNum()
-        donutView.animateCircle(duration: animationDuration, redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60)
+//        let (hour, minute, second) = getTimeNum()
+//        donutView.animateCircle(duration: animationDuration, redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60)
+//        donutView.drawDonut(redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60)
 
         // アニメーションが終わったらスタート
         Timer.scheduledTimer(timeInterval: animationDuration, target: self, selector: #selector(start), userInfo: nil, repeats: false)

@@ -35,6 +35,10 @@ class DonutView: UIView {
         initDonutLayer(sublayer: redLayer, color: redColor, center: center, radius: maxRadius - lineWidth*0 - lineMargin*0, label: "H")
         initDonutLayer(sublayer: greenLayer, color: greenColor, center: center, radius: maxRadius - lineWidth*1 - lineMargin*1, label: "M")
         initDonutLayer(sublayer: blueLayer, color: blueColor, center: center, radius: maxRadius - lineWidth*2 - lineMargin*2, label: "S")
+
+//        setupAnimatioin(layer: redLayer, duration: 1, ratio: 0)
+//        setupAnimatioin(layer: greenLayer, duration: 1, ratio: 0)
+//        setupAnimatioin(layer: blueLayer, duration: 1, ratio: 0)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -44,6 +48,7 @@ class DonutView: UIView {
     func showMilliSecond() {
         let center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0 + adjustY)
         initDonutLayer(sublayer: yellowLayer, color: yellowColor, center: center, radius: maxRadius - lineWidth*3 - lineMargin*3 + lineWidth/4, label: "MS", sizeRatio: 0.5)
+//        setupAnimatioin(layer: yellowLayer, duration: 0.5, ratio: 0)
     }
 
     private func initDonutLayer(sublayer: CAShapeLayer, color: UIColor, center: CGPoint, radius: CGFloat, label: String = "", sizeRatio: CGFloat = 1) {
@@ -118,13 +123,24 @@ class DonutView: UIView {
     }
 
     func animateCircle(duration: TimeInterval, redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 1) {
-        setupAnimatioin(layer: redLayer, duration: duration, ratio: redRatio)
-        setupAnimatioin(layer: greenLayer, duration: duration, ratio: greenRatio)
-        setupAnimatioin(layer: blueLayer, duration: duration, ratio: blueRatio)
-        setupAnimatioin(layer: yellowLayer, duration: duration, ratio: yellowRatio)
+        setupAnimatioin(layer: redLayer, duration: 1, ratio: redRatio)
+        setupAnimatioin(layer: greenLayer, duration: 1, ratio: greenRatio)
+        setupAnimatioin(layer: blueLayer, duration: 1, ratio: blueRatio)
+        setupAnimatioin(layer: yellowLayer, duration: 0.05, ratio: yellowRatio)
     }
 
     private func setupAnimatioin(layer: CAShapeLayer, duration: TimeInterval, ratio: CGFloat = 1) {
+        let startAnimation = CABasicAnimation(keyPath: "strokeStart")
+        startAnimation.duration = duration
+        startAnimation.fromValue = 0
+        startAnimation.toValue = 0
+        startAnimation.isRemovedOnCompletion = true
+        startAnimation.fillMode = CAMediaTimingFillMode.forwards
+        startAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+//        startAnimation.delegate = self as? CAAnimationDelegate
+        layer.strokeStart = 0
+        layer.add(startAnimation, forKey: "animateStrokeStart")
+
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
@@ -134,11 +150,78 @@ class DonutView: UIView {
         layer.add(animation, forKey: "animateCircle")
     }
 
+    func animateRound(layer: CAShapeLayer) {
+        print(layer.strokeStart, layer.strokeEnd, ceil(layer.strokeEnd))
+        layer.strokeStart = 1
+        layer.strokeEnd = 1
+//        layer.strokeStart += 1
+//        layer.strokeEnd = ceil(layer.strokeEnd)
+//        redLayer.strokeStart = 1
+//        greenLayer.strokeStart = 1
+//        blueLayer.strokeStart = 1
+//        yellowLayer.strokeStart = 1
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(resetDonut), userInfo: layer, repeats: false)
+    }
+
+    @objc func resetDonut(_ sender: Timer) {
+        let layer = sender.userInfo as! CAShapeLayer
+//        print(layer.animationKeys())
+//        let animation = layer.animation(forKey: "animateStrokeStart")
+//        print(animation)
+//        animation?.duration = 0
+//        print(layer.animation(forKey: "animateCircle"))
+//        print(layer.animation(forKey: "animateStrokeStart"))
+
+//        redLayer.strokeStart = 0
+//        greenLayer.strokeStart = 0
+//        blueLayer.strokeStart = 0
+//        yellowLayer.strokeStart = 0
+//        redLayer.strokeEnd = 0
+//        greenLayer.strokeEnd = 0
+//        blueLayer.strokeEnd = 0
+//        yellowLayer.strokeEnd = 0
+
+        layer.strokeStart = 0
+        layer.strokeEnd = 0
+    }
+
     func drawDonut(redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 0) {
-        redLayer.strokeEnd = redRatio
-        greenLayer.strokeEnd = greenRatio
-        blueLayer.strokeEnd = blueRatio
-        yellowLayer.strokeEnd = yellowRatio
+//        redLayer.strokeEnd = redRatio
+//        greenLayer.strokeEnd = greenRatio
+//        blueLayer.strokeEnd = blueRatio
+//        yellowLayer.strokeEnd = yellowRatio
+
+        if redLayer.strokeEnd > 0.9 && redRatio < redLayer.strokeEnd && redLayer.strokeStart < 1 {
+            animateRound(layer: redLayer)
+        }
+        else {
+            redLayer.strokeEnd = redRatio
+        }
+        if greenLayer.strokeEnd > 0.9 && greenRatio < greenLayer.strokeEnd && greenLayer.strokeStart < 1 {
+            animateRound(layer: greenLayer)
+        }
+        else {
+            greenLayer.strokeEnd = greenRatio
+        }
+        if blueLayer.strokeEnd > 0.9 && blueRatio < blueLayer.strokeEnd && blueLayer.strokeStart < 1 {
+            animateRound(layer: blueLayer)
+        }
+        else {
+            blueLayer.strokeEnd = blueRatio
+        }
+//        if yellowLayer.strokeEnd > 0.9 && yellowRatio <= yellowLayer.strokeEnd {
+        if yellowLayer.strokeEnd > 0.9 && yellowRatio < yellowLayer.strokeEnd && yellowLayer.strokeStart < 1 {
+//        let yellowCurrentRatio = yellowLayer.strokeEnd - floor(yellowLayer.strokeEnd)
+//        print(yellowLayer.strokeEnd, yellowLayer.strokeStart, yellowRatio, yellowCurrentRatio)
+//        if yellowCurrentRatio > 0.9 && yellowRatio < yellowCurrentRatio {
+            animateRound(layer: yellowLayer)
+        }
+        else {
+            yellowLayer.strokeEnd = yellowRatio
+//            yellowLayer.strokeEnd += yellowRatio
+//            yellowLayer.strokeEnd = floor(yellowLayer.strokeEnd) + yellowRatio
+        }
+
 //        print(layer.sublayers)
 //        print(redLayer.sublayers)
 //        for(layer in redLayer.sublayers) if([layer.name isEqualToString:@"A"])return;
