@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D009ED0E21F30E920031C751 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D009ED0D21F30E920031C751 /* RootViewController.swift */; };
+		D009ED1021F492B30031C751 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D009ED0F21F492B30031C751 /* TimerViewController.swift */; };
 		D0AADF6E21E608E500F53638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF6D21E608E500F53638 /* AppDelegate.swift */; };
 		D0AADF7021E608E500F53638 /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF6F21E608E500F53638 /* ClockViewController.swift */; };
 		D0AADF7221E608E500F53638 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AADF7121E608E500F53638 /* StopWatchViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		D009ED0D21F30E920031C751 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		D009ED0F21F492B30031C751 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		D0AADF6A21E608E500F53638 /* DonutClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DonutClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AADF6D21E608E500F53638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0AADF6F21E608E500F53638 /* ClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				D0AADFA221E748D600F53638 /* Views */,
 				D0AADF9F21E6132B00F53638 /* Extensions */,
 				D0AADF7121E608E500F53638 /* StopWatchViewController.swift */,
+				D009ED0F21F492B30031C751 /* TimerViewController.swift */,
 				D0AADF7321E608E500F53638 /* Main.storyboard */,
 				D009ED0D21F30E920031C751 /* RootViewController.swift */,
 				D0AADF7621E608E800F53638 /* Assets.xcassets */,
@@ -287,6 +290,7 @@
 				D0AADF7221E608E500F53638 /* StopWatchViewController.swift in Sources */,
 				D0AADF9E21E6126E00F53638 /* UIColor.swift in Sources */,
 				D0AADF6E21E608E500F53638 /* AppDelegate.swift in Sources */,
+				D009ED1021F492B30031C751 /* TimerViewController.swift in Sources */,
 				D009ED0E21F30E920031C751 /* RootViewController.swift in Sources */,
 				D0AADFA121E748C900F53638 /* DonutView.swift in Sources */,
 				D0AADF7021E608E500F53638 /* ClockViewController.swift in Sources */,

@@ -21,7 +21,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource, UIPa
 
         let clockViewController = storyboard.instantiateViewController(withIdentifier: "ClockViewController") as! ClockViewController
         let stopwatchViewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewController") as! StopWatchViewController
-        viewControllersArray = [clockViewController, stopwatchViewController]
+        let timerViewController = storyboard.instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
+        viewControllersArray = [clockViewController, stopwatchViewController, timerViewController]
 
         for index in 0 ..< viewControllersArray.count {
             let viewController = viewControllersArray[index]

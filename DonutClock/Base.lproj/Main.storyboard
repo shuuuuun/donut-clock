@@ -113,6 +113,50 @@
             </objects>
             <point key="canvasLocation" x="-41" y="-322"/>
         </scene>
+        <!--Timer-->
+        <scene sceneID="iKd-FF-RCR">
+            <objects>
+                <viewController storyboardIdentifier="TimerViewController" id="829-uH-Lly" customClass="TimerViewController" customModule="DonutClock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WoC-fh-u7t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5P-XV-B90">
+                                <rect key="frame" x="0.0" y="80" width="375" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="LFi-r9-OOP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM3-Pe-lK9">
+                                <rect key="frame" x="0.0" y="626" width="375" height="26"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e5P-XV-B90" firstAttribute="leading" secondItem="izS-JY-Ybj" secondAttribute="leading" id="0mL-Cb-goZ"/>
+                            <constraint firstItem="izS-JY-Ybj" firstAttribute="bottom" secondItem="PM3-Pe-lK9" secondAttribute="bottom" constant="15" id="J7M-BP-D0b"/>
+                            <constraint firstItem="e5P-XV-B90" firstAttribute="top" secondItem="izS-JY-Ybj" secondAttribute="top" constant="60" id="dnH-HT-5b2"/>
+                            <constraint firstItem="PM3-Pe-lK9" firstAttribute="leading" secondItem="WoC-fh-u7t" secondAttribute="leading" id="gjz-fd-I0O"/>
+                            <constraint firstItem="izS-JY-Ybj" firstAttribute="trailing" secondItem="PM3-Pe-lK9" secondAttribute="trailing" id="iw0-mS-nhs"/>
+                            <constraint firstAttribute="trailing" secondItem="e5P-XV-B90" secondAttribute="trailing" id="ypw-ph-xId"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="izS-JY-Ybj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Timer" image="second" id="6VG-rk-tr1"/>
+                    <connections>
+                        <outlet property="digitalClock" destination="e5P-XV-B90" id="Afs-Bg-1JO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HrY-WS-jGC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-322"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
