@@ -13,6 +13,7 @@ class TimerViewController: UIViewController {
     var donutView: DonutView!
     var clockTimer: Timer!
     var startDateTime: Date!
+    var targetDateTime: Date!
 
     @IBOutlet weak var digitalClock: UILabel!
 
@@ -21,11 +22,15 @@ class TimerViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         donutView = DonutView(frame: self.view.frame)
-        donutView.showMilliSecond()
         view.addSubview(donutView)
 
         //        let animationDuration = 1.0
         //        donutView.animateCircle(duration: animationDuration, redRatio: 1, greenRatio: 1, blueRatio: 1, yellowRatio: 1)
+        let hour = CGFloat(0)
+        let minute = CGFloat(15)
+        let second = CGFloat(30)
+        targetDateTime = Date(timeIntervalSinceNow: Double(hour * 60 * 60 + minute * 60 + second))
+        donutView.drawDonut(redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60)
 
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapSingle(sender:)))
         singleTap.numberOfTapsRequired = 1
@@ -77,13 +82,12 @@ class TimerViewController: UIViewController {
     }
 
     @objc private func updateClock() {
-        let elapsedTime = -startDateTime.timeIntervalSinceNow
+        let elapsedTime = targetDateTime.timeIntervalSinceNow
         let hour = CGFloat(floor(elapsedTime / 60 / 60))
         let minute = CGFloat(floor(elapsedTime / 60)) - hour * 60
         let second = CGFloat(elapsedTime) - hour * 60 - minute * 60
-        let millisecond = CGFloat(elapsedTime - floor(elapsedTime))
-        //        print(elapsedTime, hour, minute, second, millisecond)
-        donutView.drawDonut(redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60, yellowRatio: millisecond)
+//        print(targetDateTime, elapsedTime, hour, minute, second)
+        donutView.drawDonut(redRatio: hour / 24, greenRatio: minute / 60, blueRatio: second / 60)
         digitalClock.text = String(format: "%02d", Int(hour)) + ":" + String(format: "%02d", Int(minute)) + ":" + String(format: "%02d", Int(second))
     }
 }
