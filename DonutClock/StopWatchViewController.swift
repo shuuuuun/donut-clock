@@ -24,8 +24,8 @@ class StopWatchViewController: UIViewController {
         donutView.showMilliSecond()
         view.addSubview(donutView)
 
-//        let animationDuration = 1.0
-//        donutView.animateCircle(duration: animationDuration, redRatio: 1, greenRatio: 1, blueRatio: 1, yellowRatio: 1)
+        let animationDuration = 1.0
+        donutView.animateCircle(duration: animationDuration, redRatio: 1, greenRatio: 1, blueRatio: 1, yellowRatio: 1)
 
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapSingle(sender:)))
         singleTap.numberOfTapsRequired = 1

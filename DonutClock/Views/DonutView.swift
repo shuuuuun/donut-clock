@@ -150,17 +150,36 @@ class DonutView: UIView {
         layer.add(animation, forKey: "animateCircle")
     }
 
-    func animateRound(layer: CAShapeLayer) {
-        print(layer.strokeStart, layer.strokeEnd, ceil(layer.strokeEnd))
-        layer.strokeStart = 1
+    func animateRound(layer: CAShapeLayer, duration: Double = 0.5) {
+//        print(layer.strokeStart, layer.strokeEnd, ceil(layer.strokeEnd))
+        layer.strokeStart = 0
         layer.strokeEnd = 1
+//        layer.opacity = 0
 //        layer.strokeStart += 1
 //        layer.strokeEnd = ceil(layer.strokeEnd)
 //        redLayer.strokeStart = 1
 //        greenLayer.strokeStart = 1
 //        blueLayer.strokeStart = 1
 //        yellowLayer.strokeStart = 1
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(resetDonut), userInfo: layer, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(resetDonut), userInfo: layer, repeats: false)
+
+        let animation = CABasicAnimation(keyPath: "strokeStart")
+        animation.duration = duration
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.isRemovedOnCompletion = true
+        animation.fillMode = CAMediaTimingFillMode.forwards
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        layer.add(animation, forKey: "animateRound")
+
+//        let animation2 = CABasicAnimation(keyPath: "strokeEnd")
+//        animation2.duration = 0
+//        animation2.fromValue = 0
+//        animation2.toValue = 0
+//        animation2.isRemovedOnCompletion = true
+//        animation2.fillMode = CAMediaTimingFillMode.forwards
+//        animation2.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+//        layer.add(animation2, forKey: "animateRound2")
     }
 
     @objc func resetDonut(_ sender: Timer) {
@@ -183,6 +202,7 @@ class DonutView: UIView {
 
         layer.strokeStart = 0
         layer.strokeEnd = 0
+//        layer.opacity = 1
     }
 
     func drawDonut(redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 0) {
@@ -203,20 +223,25 @@ class DonutView: UIView {
         else {
             greenLayer.strokeEnd = greenRatio
         }
-        if blueLayer.strokeEnd > 0.9 && blueRatio < blueLayer.strokeEnd && blueLayer.strokeStart < 1 {
+        let blueAnimation = blueLayer.animation(forKey: "animateRound")
+        if (blueAnimation == nil) && blueLayer.strokeEnd > 0.9 && blueRatio < blueLayer.strokeEnd && blueLayer.strokeEnd != 1 {
+//        if blueLayer.strokeEnd > 0.9 && blueRatio < blueLayer.strokeEnd && blueLayer.strokeStart < 1 {
             animateRound(layer: blueLayer)
         }
-        else {
+        else if (blueAnimation == nil) {
             blueLayer.strokeEnd = blueRatio
         }
+        let yellowAnimation = yellowLayer.animation(forKey: "animateRound")
+        if (yellowAnimation == nil) && yellowLayer.strokeEnd > 0.9 && yellowRatio < yellowLayer.strokeEnd && yellowLayer.strokeEnd != 1 {
 //        if yellowLayer.strokeEnd > 0.9 && yellowRatio <= yellowLayer.strokeEnd {
-        if yellowLayer.strokeEnd > 0.9 && yellowRatio < yellowLayer.strokeEnd && yellowLayer.strokeStart < 1 {
+//        if yellowLayer.strokeEnd > 0.9 && yellowRatio < yellowLayer.strokeEnd && yellowLayer.strokeStart < 1 {
 //        let yellowCurrentRatio = yellowLayer.strokeEnd - floor(yellowLayer.strokeEnd)
 //        print(yellowLayer.strokeEnd, yellowLayer.strokeStart, yellowRatio, yellowCurrentRatio)
 //        if yellowCurrentRatio > 0.9 && yellowRatio < yellowCurrentRatio {
-            animateRound(layer: yellowLayer)
+            print(yellowLayer.strokeEnd, yellowLayer.strokeStart, yellowRatio)
+            animateRound(layer: yellowLayer, duration: 0.01)
         }
-        else {
+        else if (yellowAnimation == nil) {
             yellowLayer.strokeEnd = yellowRatio
 //            yellowLayer.strokeEnd += yellowRatio
 //            yellowLayer.strokeEnd = floor(yellowLayer.strokeEnd) + yellowRatio
