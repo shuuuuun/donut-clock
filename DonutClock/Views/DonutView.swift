@@ -22,6 +22,8 @@ class DonutView: UIView {
     let blueColor = UIColor.init(hex: "00dad8")
     let yellowColor = UIColor.init(hex: "f8c437")
 
+    var circleCenter = CGPoint()
+
     var redLayer = CAShapeLayer()
     var greenLayer = CAShapeLayer()
     var blueLayer = CAShapeLayer()
@@ -31,10 +33,10 @@ class DonutView: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
 
-        let center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0 + adjustY)
-        initDonutLayer(sublayer: redLayer, color: redColor, center: center, radius: maxRadius - lineWidth*0 - lineMargin*0, label: "H")
-        initDonutLayer(sublayer: greenLayer, color: greenColor, center: center, radius: maxRadius - lineWidth*1 - lineMargin*1, label: "M")
-        initDonutLayer(sublayer: blueLayer, color: blueColor, center: center, radius: maxRadius - lineWidth*2 - lineMargin*2, label: "S")
+        circleCenter = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0 + adjustY)
+        initDonutLayer(sublayer: redLayer, color: redColor, radius: maxRadius - lineWidth*0 - lineMargin*0, label: "H")
+        initDonutLayer(sublayer: greenLayer, color: greenColor, radius: maxRadius - lineWidth*1 - lineMargin*1, label: "M")
+        initDonutLayer(sublayer: blueLayer, color: blueColor, radius: maxRadius - lineWidth*2 - lineMargin*2, label: "S")
 
 //        setupAnimatioin(layer: redLayer, duration: 1, ratio: 0)
 //        setupAnimatioin(layer: greenLayer, duration: 1, ratio: 0)
@@ -46,18 +48,17 @@ class DonutView: UIView {
     }
 
     func showMilliSecond() {
-        let center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0 + adjustY)
-        initDonutLayer(sublayer: yellowLayer, color: yellowColor, center: center, radius: maxRadius - lineWidth*3 - lineMargin*3 + lineWidth/4, label: "MS", sizeRatio: 0.5)
+        initDonutLayer(sublayer: yellowLayer, color: yellowColor, radius: maxRadius - lineWidth*3 - lineMargin*3 + lineWidth/4, label: "MS", sizeRatio: 0.5)
 //        setupAnimatioin(layer: yellowLayer, duration: 0.5, ratio: 0)
     }
 
-    private func initDonutLayer(sublayer: CAShapeLayer, color: UIColor, center: CGPoint, radius: CGFloat, label: String = "", sizeRatio: CGFloat = 1) {
+    private func initDonutLayer(sublayer: CAShapeLayer, color: UIColor, radius: CGFloat, label: String = "", sizeRatio: CGFloat = 1) {
         let startAngle = -pi / 2
         let endAngle = 2 * pi * 3/4
 
         // background
         let bgLayer = CAShapeLayer()
-        let bgPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let bgPath = UIBezierPath(arcCenter: circleCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         bgLayer.path = bgPath.cgPath
         bgLayer.fillColor = UIColor.clear.cgColor
         bgLayer.strokeColor = color.cgColor
@@ -66,7 +67,7 @@ class DonutView: UIView {
         bgLayer.opacity = 0.2
         sublayer.addSublayer(bgLayer)
 
-        let circlePath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         sublayer.lineCap = CAShapeLayerLineCap.round
         sublayer.path = circlePath.cgPath
         sublayer.fillColor = UIColor.clear.cgColor
@@ -91,7 +92,7 @@ class DonutView: UIView {
 //        layer.addSublayer(gradLayer)
 
         let textLayer = CATextLayer()
-        textLayer.frame = CGRect(x: center.x - lineWidth/2, y: center.y - radius - lineWidth/2*sizeRatio + 3*sizeRatio, width: lineWidth, height: lineWidth)
+        textLayer.frame = CGRect(x: circleCenter.x - lineWidth/2, y: circleCenter.y - radius - lineWidth/2*sizeRatio + 3*sizeRatio, width: lineWidth, height: lineWidth)
         textLayer.string = label
         textLayer.foregroundColor = UIColor.black.cgColor
         textLayer.font = "Futura-Medium" as CFString
