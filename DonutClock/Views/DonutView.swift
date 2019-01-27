@@ -67,9 +67,16 @@ class DonutView: UIView {
         bgLayer.opacity = 0.2
         sublayer.addSublayer(bgLayer)
 
-        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+//        let circlelayer = CAShapeLayer()
+//        let circlePath = UIBezierPath(arcCenter: CGPoint(x: circleCenter.x, y: circleCenter.y - radius), radius: lineWidth*sizeRatio/2, startAngle: 0, endAngle: 2 * pi, clockwise: true)
+//        circlelayer.path = circlePath.cgPath
+//        circlelayer.fillColor = color.cgColor
+//        circlelayer.opacity = 0
+//        sublayer.addSublayer(circlelayer)
+
+        let donutPath = UIBezierPath(arcCenter: circleCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         sublayer.lineCap = CAShapeLayerLineCap.round
-        sublayer.path = circlePath.cgPath
+        sublayer.path = donutPath.cgPath
         sublayer.fillColor = UIColor.clear.cgColor
         sublayer.strokeColor = color.cgColor
         sublayer.lineWidth = lineWidth * sizeRatio
@@ -165,8 +172,11 @@ class DonutView: UIView {
             CATransaction.begin()
 //            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
             CATransaction.setAnimationDuration(0)
+//            CATransaction.setDisableActions(true)
+            CATransaction.disableActions()
             sublayer.strokeStart = 0
             sublayer.strokeEnd = 0
+//            print(sublayer.sublayers)
             CATransaction.commit()
         })
         let animation = CABasicAnimation(keyPath: "strokeStart")
@@ -179,14 +189,6 @@ class DonutView: UIView {
         sublayer.add(animation, forKey: "animateRound")
 
         CATransaction.commit()
-//        let animation2 = CABasicAnimation(keyPath: "strokeEnd")
-//        animation2.duration = 0
-//        animation2.fromValue = 0
-//        animation2.toValue = 0
-//        animation2.isRemovedOnCompletion = true
-//        animation2.fillMode = CAMediaTimingFillMode.forwards
-//        animation2.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-//        sublayer.add(animation2, forKey: "animateRound2")
     }
 
     @objc func resetDonut(_ sender: Timer) {
