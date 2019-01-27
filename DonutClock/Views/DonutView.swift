@@ -124,13 +124,13 @@ class DonutView: UIView {
     }
 
     func animateCircle(duration: TimeInterval, redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 1) {
-        setupAnimatioin(layer: redLayer, duration: 1, ratio: redRatio)
-        setupAnimatioin(layer: greenLayer, duration: 1, ratio: greenRatio)
-        setupAnimatioin(layer: blueLayer, duration: 1, ratio: blueRatio)
-        setupAnimatioin(layer: yellowLayer, duration: 0.05, ratio: yellowRatio)
+        setupAnimatioin(sublayer: redLayer, duration: 1, ratio: redRatio)
+        setupAnimatioin(sublayer: greenLayer, duration: 1, ratio: greenRatio)
+        setupAnimatioin(sublayer: blueLayer, duration: 1, ratio: blueRatio)
+        setupAnimatioin(sublayer: yellowLayer, duration: 0.05, ratio: yellowRatio)
     }
 
-    private func setupAnimatioin(layer: CAShapeLayer, duration: TimeInterval, ratio: CGFloat = 1) {
+    private func setupAnimatioin(sublayer: CAShapeLayer, duration: TimeInterval, ratio: CGFloat = 1) {
         let startAnimation = CABasicAnimation(keyPath: "strokeStart")
         startAnimation.duration = duration
         startAnimation.fromValue = 0
@@ -139,26 +139,25 @@ class DonutView: UIView {
         startAnimation.fillMode = CAMediaTimingFillMode.forwards
         startAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 //        startAnimation.delegate = self as? CAAnimationDelegate
-        layer.strokeStart = 0
-        layer.add(startAnimation, forKey: "animateStrokeStart")
+        sublayer.strokeStart = 0
+        sublayer.add(startAnimation, forKey: "animateStrokeStart")
 
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = duration
         animation.fromValue = 0
         animation.toValue = ratio
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        layer.strokeEnd = ratio
-        layer.add(animation, forKey: "animateCircle")
+        sublayer.strokeEnd = ratio
+        sublayer.add(animation, forKey: "animateCircle")
     }
 
-    func animateRound(layer: CAShapeLayer, duration: Double = 0.5) {
-//        print(layer.strokeStart, layer.strokeEnd, ceil(layer.strokeEnd))
-        layer.strokeStart = 0
-        layer.strokeEnd = 1
-//        layer.opacity = 0
-//        layer.strokeStart += 1
-//        layer.strokeEnd = ceil(layer.strokeEnd)
-//        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(resetDonut), userInfo: layer, repeats: false)
+    func animateRound(sublayer: CAShapeLayer, duration: Double = 0.5) {
+        sublayer.strokeStart = 0
+        sublayer.strokeEnd = 1
+//        sublayer.opacity = 0
+//        sublayer.strokeStart += 1
+//        sublayer.strokeEnd = ceil(layer.strokeEnd)
+//        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(resetDonut), userInfo: sublayer, repeats: false)
 
         CATransaction.begin()
         CATransaction.setAnimationDuration(duration)
@@ -166,8 +165,8 @@ class DonutView: UIView {
             CATransaction.begin()
 //            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
             CATransaction.setAnimationDuration(0)
-            layer.strokeStart = 0
-            layer.strokeEnd = 0
+            sublayer.strokeStart = 0
+            sublayer.strokeEnd = 0
             CATransaction.commit()
         })
         let animation = CABasicAnimation(keyPath: "strokeStart")
@@ -177,7 +176,7 @@ class DonutView: UIView {
         animation.isRemovedOnCompletion = true
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        layer.add(animation, forKey: "animateRound")
+        sublayer.add(animation, forKey: "animateRound")
 
         CATransaction.commit()
 //        let animation2 = CABasicAnimation(keyPath: "strokeEnd")
@@ -187,7 +186,7 @@ class DonutView: UIView {
 //        animation2.isRemovedOnCompletion = true
 //        animation2.fillMode = CAMediaTimingFillMode.forwards
 //        animation2.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-//        layer.add(animation2, forKey: "animateRound2")
+//        sublayer.add(animation2, forKey: "animateRound2")
     }
 
     @objc func resetDonut(_ sender: Timer) {
@@ -205,19 +204,19 @@ class DonutView: UIView {
     }
 
     func drawDonut(redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 0) {
-        drawDonutLayer(layer: redLayer, ratio: redRatio)
-        drawDonutLayer(layer: greenLayer, ratio: greenRatio)
-        drawDonutLayer(layer: blueLayer, ratio: blueRatio)
-        drawDonutLayer(layer: yellowLayer, ratio: yellowRatio)
+        drawDonutLayer(sublayer: redLayer, ratio: redRatio)
+        drawDonutLayer(sublayer: greenLayer, ratio: greenRatio)
+        drawDonutLayer(sublayer: blueLayer, ratio: blueRatio)
+        drawDonutLayer(sublayer: yellowLayer, ratio: yellowRatio)
     }
 
-    func drawDonutLayer(layer: CAShapeLayer, ratio: CGFloat) {
-        let animation = layer.animation(forKey: "animateRound")
-        if (animation == nil) && layer.strokeEnd > 0.9 && ratio < layer.strokeEnd && layer.strokeEnd != 1 {
-            animateRound(layer: layer)
+    func drawDonutLayer(sublayer: CAShapeLayer, ratio: CGFloat) {
+        let animation = sublayer.animation(forKey: "animateRound")
+        if (animation == nil) && sublayer.strokeEnd > 0.9 && ratio < sublayer.strokeEnd && sublayer.strokeEnd != 1 {
+            animateRound(sublayer: sublayer)
         }
         else if (animation == nil) {
-            layer.strokeEnd = ratio
+            sublayer.strokeEnd = ratio
         }
 
 //        print(layer.sublayers)
