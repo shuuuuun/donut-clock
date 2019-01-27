@@ -157,12 +157,18 @@ class DonutView: UIView {
 //        layer.opacity = 0
 //        layer.strokeStart += 1
 //        layer.strokeEnd = ceil(layer.strokeEnd)
-//        redLayer.strokeStart = 1
-//        greenLayer.strokeStart = 1
-//        blueLayer.strokeStart = 1
-//        yellowLayer.strokeStart = 1
 //        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(resetDonut), userInfo: layer, repeats: false)
 
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(duration)
+        CATransaction.setCompletionBlock({
+            CATransaction.begin()
+//            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+            CATransaction.setAnimationDuration(0)
+            layer.strokeStart = 0
+            layer.strokeEnd = 0
+            CATransaction.commit()
+        })
         let animation = CABasicAnimation(keyPath: "strokeStart")
         animation.duration = duration
         animation.fromValue = 0
@@ -172,6 +178,7 @@ class DonutView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         layer.add(animation, forKey: "animateRound")
 
+        CATransaction.commit()
 //        let animation2 = CABasicAnimation(keyPath: "strokeEnd")
 //        animation2.duration = 0
 //        animation2.fromValue = 0
