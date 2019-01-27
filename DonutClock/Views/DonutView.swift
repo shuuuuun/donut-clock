@@ -198,68 +198,31 @@ class DonutView: UIView {
 //        print(layer.animation(forKey: "animateCircle"))
 //        print(layer.animation(forKey: "animateStrokeStart"))
 
-//        redLayer.strokeStart = 0
-//        greenLayer.strokeStart = 0
-//        blueLayer.strokeStart = 0
-//        yellowLayer.strokeStart = 0
-//        redLayer.strokeEnd = 0
-//        greenLayer.strokeEnd = 0
-//        blueLayer.strokeEnd = 0
-//        yellowLayer.strokeEnd = 0
-
         layer.strokeStart = 0
         layer.strokeEnd = 0
 //        layer.opacity = 1
     }
 
     func drawDonut(redRatio: CGFloat = 1, greenRatio: CGFloat = 1, blueRatio: CGFloat = 1, yellowRatio: CGFloat = 0) {
-//        redLayer.strokeEnd = redRatio
-//        greenLayer.strokeEnd = greenRatio
-//        blueLayer.strokeEnd = blueRatio
-//        yellowLayer.strokeEnd = yellowRatio
+        drawDonutLayer(layer: redLayer, ratio: redRatio)
+        drawDonutLayer(layer: greenLayer, ratio: greenRatio)
+        drawDonutLayer(layer: blueLayer, ratio: blueRatio)
+        drawDonutLayer(layer: yellowLayer, ratio: yellowRatio)
+    }
 
-        if redLayer.strokeEnd > 0.9 && redRatio < redLayer.strokeEnd && redLayer.strokeStart < 1 {
-            animateRound(layer: redLayer)
+    func drawDonutLayer(layer: CAShapeLayer, ratio: CGFloat) {
+        let animation = layer.animation(forKey: "animateRound")
+        if (animation == nil) && layer.strokeEnd > 0.9 && ratio < layer.strokeEnd && layer.strokeEnd != 1 {
+            animateRound(layer: layer)
         }
-        else {
-            redLayer.strokeEnd = redRatio
-        }
-        if greenLayer.strokeEnd > 0.9 && greenRatio < greenLayer.strokeEnd && greenLayer.strokeStart < 1 {
-            animateRound(layer: greenLayer)
-        }
-        else {
-            greenLayer.strokeEnd = greenRatio
-        }
-        let blueAnimation = blueLayer.animation(forKey: "animateRound")
-        if (blueAnimation == nil) && blueLayer.strokeEnd > 0.9 && blueRatio < blueLayer.strokeEnd && blueLayer.strokeEnd != 1 {
-//        if blueLayer.strokeEnd > 0.9 && blueRatio < blueLayer.strokeEnd && blueLayer.strokeStart < 1 {
-            animateRound(layer: blueLayer)
-        }
-        else if (blueAnimation == nil) {
-            blueLayer.strokeEnd = blueRatio
-        }
-        let yellowAnimation = yellowLayer.animation(forKey: "animateRound")
-        if (yellowAnimation == nil) && yellowLayer.strokeEnd > 0.9 && yellowRatio < yellowLayer.strokeEnd && yellowLayer.strokeEnd != 1 {
-//        if yellowLayer.strokeEnd > 0.9 && yellowRatio <= yellowLayer.strokeEnd {
-//        if yellowLayer.strokeEnd > 0.9 && yellowRatio < yellowLayer.strokeEnd && yellowLayer.strokeStart < 1 {
-//        let yellowCurrentRatio = yellowLayer.strokeEnd - floor(yellowLayer.strokeEnd)
-//        print(yellowLayer.strokeEnd, yellowLayer.strokeStart, yellowRatio, yellowCurrentRatio)
-//        if yellowCurrentRatio > 0.9 && yellowRatio < yellowCurrentRatio {
-            print(yellowLayer.strokeEnd, yellowLayer.strokeStart, yellowRatio)
-            animateRound(layer: yellowLayer, duration: 0.01)
-        }
-        else if (yellowAnimation == nil) {
-            yellowLayer.strokeEnd = yellowRatio
-//            yellowLayer.strokeEnd += yellowRatio
-//            yellowLayer.strokeEnd = floor(yellowLayer.strokeEnd) + yellowRatio
+        else if (animation == nil) {
+            layer.strokeEnd = ratio
         }
 
 //        print(layer.sublayers)
-//        print(redLayer.sublayers)
 //        for(layer in redLayer.sublayers) if([layer.name isEqualToString:@"A"])return;
 
 //        let transformCenter = CGAffineTransform(translationX: center.x, y: center.y + adjustY)
-//        print(frame, center, redRatio, greenRatio, blueRatio)
 
 //        var capLayer = redLayer.value(forKey: "cap") as! CAShapeLayer
 //        var capPath = redLayer.value(forKey: "capBezierPath") as! UIBezierPath
@@ -269,26 +232,6 @@ class DonutView: UIView {
 //        capLayer.path = capPath.cgPath
 //        capPath.apply(transformCenter.inverted())
 //        capPath.apply(CGAffineTransform(rotationAngle: -2 * pi * redRatio)) // reset angle
-//        capPath.apply(transformCenter)
-//
-//        capLayer = greenLayer.value(forKey: "cap") as! CAShapeLayer
-//        capPath = greenLayer.value(forKey: "capBezierPath") as! UIBezierPath
-//        capPath.apply(transformCenter.inverted())
-//        capPath.apply(CGAffineTransform(rotationAngle: 2 * pi * greenRatio))
-//        capPath.apply(transformCenter)
-//        capLayer.path = capPath.cgPath
-//        capPath.apply(transformCenter.inverted())
-//        capPath.apply(CGAffineTransform(rotationAngle: -2 * pi * greenRatio)) // reset angle
-//        capPath.apply(transformCenter)
-//
-//        capLayer = blueLayer.value(forKey: "cap") as! CAShapeLayer
-//        capPath = blueLayer.value(forKey: "capBezierPath") as! UIBezierPath
-//        capPath.apply(transformCenter.inverted())
-//        capPath.apply(CGAffineTransform(rotationAngle: 2 * pi * blueRatio))
-//        capPath.apply(transformCenter)
-//        capLayer.path = capPath.cgPath
-//        capPath.apply(transformCenter.inverted())
-//        capPath.apply(CGAffineTransform(rotationAngle: -2 * pi * blueRatio)) // reset angle
 //        capPath.apply(transformCenter)
     }
 }
