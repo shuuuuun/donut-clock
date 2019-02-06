@@ -21,7 +21,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource, UIPa
 
         let clockViewController = storyboard.instantiateViewController(withIdentifier: "ClockViewController") as! ClockViewController
         let stopwatchViewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewController") as! StopWatchViewController
-        let timerViewController = storyboard.instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
+//        let timerViewController = storyboard.instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
         viewControllersArray = [clockViewController, stopwatchViewController]
 
         for index in 0 ..< viewControllersArray.count {
@@ -43,6 +43,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource, UIPa
         pageControl.currentPage = 0
         pageControl.isUserInteractionEnabled = false
         self.view.addSubview(pageControl)
+
+        self.view.bringSubviewToFront(self.view.subviews[0])
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
