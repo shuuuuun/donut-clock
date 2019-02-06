@@ -17,10 +17,14 @@ class DonutView: UIView {
     let fontSize: CGFloat = 20
     let pi = CGFloat(Double.pi)
 
-    let redColor = UIColor.init(hex: "f31e58")
-    let greenColor = UIColor.init(hex: "99f700")
-    let blueColor = UIColor.init(hex: "00dad8")
-    let yellowColor = UIColor.init(hex: "f8c437")
+//    let redColor = UIColor.init(hex: "f31e58")
+//    let greenColor = UIColor.init(hex: "99f700")
+//    let blueColor = UIColor.init(hex: "00dad8")
+//    let yellowColor = UIColor.init(hex: "f8c437")
+    let redColor = UIColor.init(hex: "444444")
+    let greenColor = UIColor.init(hex: "666666")
+    let blueColor = UIColor.init(hex: "888888")
+    let yellowColor = UIColor.init(hex: "bbbbbb")
 
     var circleCenter = CGPoint()
 
